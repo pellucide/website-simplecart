@@ -1,0 +1,357 @@
+<!DOCTYPE html>  
+<html  xmlns="http://www.w3.org/1999/xhtml">  
+<head>  
+    <title>simpleCart(js) - Test</title>  
+
+<link href="test.css" rel="stylesheet" media="screen" type="text/css" />
+   <!-- <script  type="text/javascript" src="firebug-lite/build/firebug-lite-debug.js"></script> -->
+
+   <script type="text/javascript"  src="mootoolsCore.js"></script>
+   <script type="text/javascript"  src="mootoolsMore.js"></script> 
+
+   <!--
+   <script  type="text/javascript" src="jquery.js"></script> 
+   -->
+
+
+   <!-- <script type="text/javascript"  src="loadMenuManual.js"></script> -->
+   <script  type="text/javascript" src="menu1.json"></script>
+   <script  type="text/javascript" src="menuProcessing.js"></script>
+
+
+   <script type="text/javascript"  src="simpleCart.js"></script>
+   <script type="text/javascript" >
+       simpleCart({
+           checkout: { 
+               type: "PayPal" , 
+               email: "you@yours.com",
+           },
+           taxRate:0.075,
+           currency:'USD',
+           cartStyle:'table',
+
+           cartColumns: [
+            { view: function(item, column){
+                        return "<div class='item-name'>" +
+                               "<span>"+item.get('name')+"("+simpleCart.toCurrency(item.price())+")"+"</span>" +
+                                "</div>";
+                      }, attr: 'customName' },
+
+
+            { view: function(item, column){
+                        return  "<span>"+item.get('quantity')+"</span>" +
+                                "<div>" +
+                                         "<a href='javascript:;' class='simpleCart_increment'><img src='increment.png' title='+1' alt='arrow up'/></a>" +
+                                         "<a href='javascript:;' class='simpleCart_decrement'><img src='decrement.png' title='-1' alt='arrow down'/></a>" +
+                                "</div>";
+                      }, attr: 'custom' },
+
+            { attr: "total" , label: false, view: 'currency' } ,
+            { view: function(item, column){
+                        return  "<div>" +
+                                "<a href='javascript:;' class='simpleCart_remove'> " +
+                                "<img src='remove.gif' title='X' alt='remove'/></a>" +
+                                "</div>";
+                      }, attr: 'customremove' },
+
+           ]
+       }); 
+   </script>
+
+
+
+   <script type="text/javascript" >
+       window.addEvent('domready', function() {
+           var oldParent = null;
+           var updateItemsView = function (element) {
+               var thisparent = element.getParent('div.item');
+               if (oldParent) {
+                   oldParent.set('class', 'item');
+               }
+               oldParent = thisparent;
+               
+               if (thisparent) {
+                   thisparent.set('class', 'itemSelected');
+               }
+           }
+
+           var itemsShelf=document.id('itemsShelf');
+           var choicesShelf=document.id('choicesShelf');
+
+
+           var displayChoices = function () {
+               //choicesShelf.empty();
+               var currentItemId = this.retrieve("privateitemid",0);
+               console.log('privateitemid='+ currentItemId);
+               updateItemsView(this);
+               updateDetails(currentItemId);
+           }
+
+
+           var updateDetails = function(currentItemId) {
+               var item =itemsHash.get(currentItemId); 
+               try {
+               var choices = item.itemChoice;
+               var myHeaderCrumb = $$('td.myheaderCrumb');
+               var myHeaderPrice = $$('td.myheaderPrice');
+               var mandatoryOptions = document.id('mandatoryOptions');
+               var optionalOptions = document.id('optionalOptions');
+               console.log("itemid="+item.id);
+               var itemid = parseInt(item.id);
+
+
+               mandatoryOptions.empty();
+               optionalOptions.empty();
+
+               myHeaderCrumb.set('html', item.category +' > ' + item.itemname);
+               myHeaderPrice.set('html', item.itemprice);
+
+               var cgroups = new Array();
+               var bgroups = new Array();
+
+               choices.each(function(choice) {
+                   console.log("choice="+choice.choiceName);
+                   if (choice.choiceGroup == "true") {
+                       console.log("choice "+choice.choiceName + " is in the group "+choice.choiceGroup);
+                       if (cgroups.hasOwnProperty(choice.choiceCategory)) {
+                           console.log("choice "+choice.choiceName + " is in category " + choice.choiceCategory);
+                           var choicy = cgroups[choice.choiceCategory];
+                           choicy[choicy.length] = choice;
+                       }
+                       else {
+                           console.log("choice "+choice.choiceName + " is in new category " + choice.choiceCategory);
+                           var choicy = new Array();
+                           choicy[choicy.length] = choice;
+                           cgroups[choice.choiceCategory] = choicy;
+                           cgroups[cgroups.length] = choicy;
+                       }
+
+                   } else  {
+                       console.log("choice "+choice.choiceName + " is in category " + choice.choiceCategory);
+                       if (bgroups.hasOwnProperty(choice.choiceCategory)) {
+                           var choicy = bgroups[choice.choiceCategory];
+                           choicy[choicy.length] = choice;
+                       }
+                       else {
+                           var choicy = new Array();
+                           choicy[choicy.length] = choice;
+                           bgroups[choice.choiceCategory] = choicy;
+                           bgroups[bgroups.length] = choicy;
+                       }
+                   }
+               });
+
+
+
+               console.log("cgroups size="+cgroups.length);
+               console.log("bgroups size="+bgroups.length);
+
+               var index = 0;
+               cgroups.each (function(cgroup) {
+                   if (cgroup.length > 0) {
+                       var cg = new Element ('div.cgroup'+index,
+                                    {'html': 'What '+ cgroup[0].choiceCategory+' would you like ?'}).inject(mandatoryOptions);
+                       index++;
+                       var form1= new Element('form', {'action':'someAction',
+                                                       'id':cgroup[0].choiceCategory,
+                                                       'name':cgroup[0].choiceCategory}).inject(cg);
+                       cgroup.each(function(choice) {
+                           new Element('input', {'type':'radio',
+                                                 'id':'radio'+choice.id,
+                                                 'name':'group'+choice.choiceCategory,
+                                                 'value':choice.choiceName,
+                                                 }).inject(form1);
+                           new Element('span', {'html':choice.choiceName + '  $'+choice.choicePrice}).inject(form1);
+                           new Element('br').inject(form1);
+                       });
+                   }
+                                
+               });
+
+               index = 0;
+               bgroups.each (function(bgroup) {
+                   if (bgroup.length > 0) {
+                       var cg = new Element ('div.bgroup'+index,
+                                    {'html': 'Choose the '+ bgroup[0].choiceCategory}).inject(optionalOptions);
+                       index++;
+                       var form1= new Element('form', {'action':'someAction',
+                                                       'id':bgroup[0].choiceCategory,
+                                                       'name':bgroup[0].choiceCategory}).inject(cg);
+                       bgroup.each(function(choice) {
+                           new Element('input', {'type':'checkbox',
+                                                 'id':'checkbox'+choice.id,
+                                                 'name':'group'+choice.choiceCategory,
+                                                 'value':choice.choiceName,
+                                                 }).inject(form1);
+                           new Element('span', {'html':choice.choiceName + '  $'+choice.choicePrice}).inject(form1);
+                           new Element('br').inject(form1);
+                       });
+                   }
+                                
+               });
+               } catch(e) {
+               }
+
+           }
+
+           var updateDetails1 = function(currentItemId) {
+               var item =itemsHash.get(currentItemId); 
+               var choices = item.itemChoice;
+               var detailsHeader = new Element('div.detailsHeader').inject(choicesShelf),
+                 detailHeaderRow = new Element('tr.detailHeaderRow').inject(detailsHeader),
+                   myheaderCrumb = new Element('td.myheaderCrumb', {
+                                                'html':item.category+' > ' + item.itemname
+                                               }).inject(detailHeaderRow),
+                   myheaderPrice = new Element('td.myheaderPrice', {
+                                               'html':'$'+item.itemprice,
+                                               /* 'background': 'blue_tag.png', */
+                                               'width': '20%'
+                                               }).inject(detailHeaderRow);
+               console.log("itemid="+item.id);
+               var itemid = parseInt(item.id);
+ 
+
+               choices.each(function(choice) {
+               });
+
+           }
+
+           //var menu=document.id('menu');
+           //var tileTitle = new Element('h3', {'html':'.menu'});
+           //tileTitle.inject(menu);
+
+           itemsShelf.addEvent('click:relay(.itemName)', displayChoices);
+           itemsShelf.addEvent('click:relay(.itemPrice)', displayChoices);
+           var addCats = function(cats) {
+               cats.each(function(cat) {
+                  var catDiv1 = new Element('table.catAccordion'),
+                       catDiv = new Element('div.category').inject(catDiv1),
+                         name = new Element('h1',{'html':cat.name}).inject(catDiv),
+                     itemsDiv = new Element('div.items').inject(catDiv),
+                        items = cat.getItems();
+                  items.each(function(item) {
+                       var itemDiv = new Element('div.item').inject(itemsDiv),
+                           itemRow = new Element('tr.itemrow').inject(itemDiv),
+                       itemName = new Element('td.itemName', {'html':item.itemname}).inject(itemRow),
+                       itemPrice = new Element('td.itemPrice', {'html':'$'+item.itemprice+'+'}).inject(itemRow);
+                       console.log("itemid="+item.id);
+                       var itemid = parseInt(item.id);
+                       itemName.store("privateitemid", itemid );
+                       itemPrice.store("privateitemid", itemid);
+                  });
+                  catDiv1.inject(itemsShelf);  
+               });
+           };
+
+
+           addCats (categories);
+           new Fx.Accordion($('catAccordion'), '.catAccordion .category', '.catAccordion .items', {
+                             display:1,
+                             alwaysHide:false
+                            });
+       });
+ 
+   </script>
+
+</head>
+
+<body background="paper.jpg">
+   <div id="menu">
+      <h3>.menu</h3>
+      <div class="itemsview", id="itemsShelf">
+      <!--
+      <div class="simpleCart_shelfItem">
+         <h2 class="item_name">Item1</h2>
+         <select class="item_choice">
+             <option value="choice1">Choice1</option>
+             <option value="choice2">Choice2</option>
+             <option value="choice3">Choice3</option>
+             <option value="choice4">Choice4</option>
+         </select>
+         <input type="text" value="1" class="item_Quantity">
+         <span class="item_price">$2.00</span><br>
+         <a class="item_add" href="javascript:;"> Add to Cart </a>
+      </div>
+      -->
+      </div> 
+   </div> 
+
+   <div id="details">
+      <h3>.details</h3>
+      <div class="choicesview" id ="choicesShelf">
+         <div class="detailsHeader">
+             <table>
+                 <tr class="detailHeaderRow">
+                    <td  class="myheaderCrumb">Pizza > Vegi</td>
+                    <td  class="myheaderPrice">$10.99</td>
+                 </tr>
+             </table>
+         </div>
+         <div class="selectionSummery">
+            <table border="0" cellpadding="1">
+               <tr>
+                  <td> <img class="itemPicture" src="amazonas_s.jpg"> </td>
+                  <td class="selectedList">
+                      <h1>Details</h1> 
+                      <li>white spanish onions</li>
+                      <li>mushrooms </li>
+                      <li>green peppers</li>
+                      <li>Red peppers</li>
+                  </td>
+               </tr>
+            </table> 
+         </div>
+         <div class="customization">
+             <h1>Customize</h1> 
+         </div>
+  
+         <div class="qtyText" >
+            <tr>
+                <td class="qty">How many would you like ?
+                    <input type="text" value="1" class="item_Quantity">
+                </td>
+            </tr>
+         </div>
+
+         <div id="itemOptions" >
+              <div id="mandatoryOptions" >
+              </div>
+
+              <div id="optionalOptions" >
+              </div>
+         </div>
+
+
+
+
+         <div class="notes">
+              <textarea rows="3" cols="29">Enter Notes here</textarea>
+         </div>
+  
+
+      </div> <!-- choicesView -->
+   </div> 
+
+   <div class="cartview" id="cart">
+      <span class="simpleCart_quantity"></span> items <br>
+      total - <span class="simpleCart_total"></span> <br>
+        tax - <span class="simpleCart_tax"></span> <br>
+      grandTotal - <span class="simpleCart_grandTotal"></span>
+      <h2 class=""> Cart Items </h2>
+      <div class="simpleCart_items"></div><br>
+         <div class="checkoutEmptyLinks">
+         <!--Here's the Links to Checkout and Empty Cart-->
+         <!-- the onclick has to be specified if Mootols is used
+         <a href="javascript:;" class="simpleCart_empty"   onclick="simpleCart.empty(); return false;">empty cart</a>
+         -->
+         <!-- the onclick is not needed with jquery -->
+         <a href="javascript:;" class="simpleCart_empty">empty cart</a>
+         <a href="javascript:;" class="simpleCart_checkout">Checkout</a>
+      </div>
+   </div>
+   <br>
+   <br>
+
+
+</body>
+</html>  

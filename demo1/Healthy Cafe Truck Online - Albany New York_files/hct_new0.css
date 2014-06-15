@@ -1,0 +1,1033 @@
+html, body {
+
+	margin: 0;
+    padding: 0;
+	height:100%;
+ 
+}
+
+body {
+
+	font-family: Arial, Helvetica, Verdana, Sans-serif;
+	font-size: 12px;
+	color: #666666;
+	background: #ffffff;
+	text-align: center;
+	background:#FFFFFF url(truck000.gif) no-repeat fixed right bottom;
+	
+	
+	}
+
+body.about li#about,
+body.about li#about a,
+body.about li#about a:hover,
+body.menu li#menu,
+body.menu li#menu a, 
+body.menu li#menu a:hover,
+body.order li#order, 
+body.order li#order a, 
+body.order li#order a:hover,
+body.contact li#contact, 
+body.contact li#contact a,
+body.contact li#contact a:hover {
+
+	background-position: 0 -100px;
+
+}
+
+#header-container {
+	
+width:100%;
+background-color:#7FFF00;
+}
+
+
+.header-left {
+	background: url("left_bor.gif") repeat-x scroll 0 0;
+	display: inline;
+	float: left;
+	height: 94px;
+	width: 50%;
+	z-index:1;
+	position:absolute;
+	left: 0px;
+	top: 41px;
+}
+
+.header-middle {
+    display:inline;
+    height: 129px;
+	position:relative;
+	z-index:50;
+}
+
+.header-right {
+	background: url("right_bo.gif") repeat-x scroll 0 0;
+	display: inline;
+	float: right;
+	height: 94px;
+	width: 50%;
+	z-index:1;
+	position:absolute;
+	right:0px;
+	top: 41px;
+}
+
+.hidden {
+
+    display: none;
+}
+
+#page-container {
+	
+    width: 100%;
+    margin-left: 0px;
+	text-align:left;
+	margin: 0 auto -4em;
+
+}
+
+h1 {
+	
+	margin: 0;
+   	padding: 0;
+    float: right;
+	margin-top: 60px;
+	padding-right: 30px;
+
+}
+
+
+/* Main Navigation */
+
+#main-nav { height: 50px; background:#FF9; width:100%;} 
+#main-nav ul { margin-left:8% ;   padding: 0;list-style-type:none; height:50px; padding-top:0px;margin-top:0px;}
+#main-nav li { float:left;  height:50px; overflow:hidden; }
+#main-nav li a {
+
+	display: block;
+	height: 0px !important
+	height /**/:50px; /* IE 5/Win hack */
+	padding: 50px 0 0 0;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	position:relative;
+	
+}
+
+#main-nav li a:hover { background-position: 0 -50px; }
+#main-nav li#about, #main-nav li#about a { width: 71px; background-image: url(about000.gif); }
+#main-nav li#menu, #main-nav li#menu a { width: 71px; background-image: url(menu0000.gif); }
+#main-nav li#order,#main-nav li#order a { width: 110px; background-image: url(orderonl.gif); }
+#main-nav li#contact, #main-nav li#contact a { width: 80px; background-image: url(contact0.gif); }
+
+
+#contentWrapper {
+	
+    width: 92%;
+	height: auto;
+    margin: auto;
+	text-align:left;
+	margin-top:5px;
+	margin-bottom:20px;
+}
+
+.ordersummary 
+{
+	width:100%;
+	background-color:#7FFF00;
+	color:#333;
+	height:25px;
+
+	padding-bottom:2px;
+	padding-right:4px;
+	padding-top:4px;
+}
+.templatemo_product {
+
+	float: left;
+	width: 455px;
+	height: 125px;
+	padding: 20px;
+	background: #FFF ;
+	margin-bottom: 10px;
+}
+.template_image{
+
+	float: left;
+	width: 700px;
+	height: 500px;
+	padding: 15px;
+	background: #FFF ;
+	margin-bottom: 10px;
+}
+
+
+#right_section {
+
+	float: left;
+	width: 480px;
+	padding: 15px;
+	margin-top:10px;
+	text-align: justify;
+
+}
+
+#left_section {
+
+	float: right;
+	width: 300px;
+	padding:10px;
+	
+}
+#facebook_section{
+
+	float: left;
+	width: 300px;
+	padding:10px;
+	
+}
+
+
+
+
+.align-right { float:right; margin: 0 0 15px 15px; }
+.align-left { float:left; margin: 0 15px 15px 0; }
+.frame { padding: 5px; border: 1px solid #aaa; }
+
+/*********************** footer ********************************/
+#footer-container {
+
+	width:100%;
+	height:10px;
+	bottom:0px;
+	clear: both;
+}
+.footer, .push {
+	height: 80px; /* .push must be the same height as .footer */
+}
+
+#footer {
+
+	
+	font-family: Tahoma, Arial, Helvetica, Sans-serif;
+	font-size: 10px;
+    color:#333;
+	padding: 10px;
+	width:75%;
+	margin-left:8%;
+	text-align:left;
+
+}
+
+#footer #altnav {
+
+	width: 350px;
+	float: right;
+	color:#FF6;
+	text-align: right;
+	padding-top:0px;
+
+}
+
+#footer #copyright {
+ padding-top: 5px;
+
+}
+	
+a:link {text-decoration:none;}
+ a:visited {text-decoration:none;}
+ a:hover {text-decoration:none;color:#0C0;}
+ a:active {text-decoration:underline;}
+ 
+#menuitems {
+	background: url(menu_img.gif) no-repeat;
+position: relative;
+width: 990px;
+height: 990px;
+padding: 0;
+}
+
+#menuitems li {
+	display: block;
+	position: absolute;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 18px;
+	height: 18px;
+}
+
+#menuitems a {
+display: block;
+text-indent: -9999px;
+outline: none;
+cursor: default;
+}
+
+#gobble { left: 29px; top: 84px; z-index:20;}
+#tt {left: 29px;top: 101px;z-index: 20;}
+#ttt {left: 29px;top: 119px;z-index:20;}
+#wt {left: 29px;top: 136px;z-index: 20;}
+#chim {left: 29px;top: 153px;z-index: 20;}
+#st {left: 29px;top: 171px;z-index: 20;}
+#rbb {left: 29px;top: 215px;z-index: 20;}
+#rr {left: 29px;top: 232px;z-index: 20;}
+#cr {left: 29px;top: 250px;z-index: 20;}
+#gf {left: 29px;top: 299px;z-index: 20;}
+#ct {left: 29px;top: 326px;z-index: 20;}
+#ntt {left: 29px;top: 346px;z-index: 20;}
+#alb {left: 29px;top: 400px;z-index: 20;}
+#veg {
+	left: 29px;
+	top: 418px;
+	z-index: 20;
+}
+#awu {
+	left: 29px;
+	top: 436px;
+	z-index: 20;
+}
+#hummus {
+	left: 29px;
+	top: 452px;
+	z-index: 20;
+}
+
+#ftc {
+	left: 29px;
+	top: 500px;
+	z-index: 20;
+}
+#peck {
+	left: 29px;
+	top: 518px;
+	z-index: 20;
+}
+#cock {
+	left: 29px;
+	top: 534px;
+	z-index: 20;
+}
+#cl {
+	left: 29px;
+	top: 551px;
+	z-index: 20;
+}
+#bc {
+	left: 29px;
+	top: 569px;
+	z-index: 20;
+}
+#knb {
+	left: 29px;
+	top: 586px;
+	z-index: 20;
+}
+
+#cluck {
+	left: 29px;
+	top: 603px;
+	z-index: 20;
+}
+#cc {
+	left: 29px;
+	top: 620px;
+	z-index: 20;
+}
+#amigo {
+	left: 29px;
+	top: 637px;
+	z-index: 20;
+}
+#thai {
+	left: 29px;
+	top: 656px;
+	z-index: 20;
+}
+/*  menu - position on menu -toasted subs - */
+
+#utb {
+	left: 29px;
+	top: 736px;
+	z-index: 20;
+}
+#cad {
+	left: 29px;
+	top: 761px;
+	z-index: 20;
+}
+#gov {
+	left: 29px;
+	top: 785px;
+	z-index: 20;
+}
+#goomba {
+	left: 29px;
+	top: 806px;
+	z-index: 20;
+}
+
+/* position on menu -toasted focaccia - */
+#tm {
+	left: 29px;
+	top: 862px;
+	z-index: 20;
+}
+#rbz {
+	left: 29px;
+	top: 884px;
+	z-index: 20;
+}
+#sop {
+	left: 29px;
+	top: 902px;
+	z-index: 20;
+}
+#port {
+	left: 29px;
+	top: 923px;
+	z-index: 20;
+}
+#egg {
+	left: 29px;
+	top: 949px;
+	z-index: 20;
+}
+
+
+/*  salads */
+
+#shore {
+	left: 508px;
+	top: 84px;
+	z-index:20;
+}
+#bird {
+	left: 508px;
+	top: 104px;
+	z-index: 20;
+}
+#caesar {
+	left: 508px;
+	top: 121px;
+	z-index:20;
+}
+#addpenne {
+	left: 818px;
+	top: 140px;
+	z-index: 20;
+}
+#bc {
+	left: 508px;
+	top: 155px;
+	z-index: 20;
+}
+#buff {
+	left: 508px;
+	top: 194px;
+	z-index: 20;
+}
+#mand {
+	left: 508px;
+	top: 215px;
+	z-index: 20;
+}
+#sen {
+	left: 508px;
+	top: 235px;
+	z-index: 20;
+}
+#addchix {
+	left: 818px;
+	top: 252px;
+	z-index: 20;
+}
+#taco {
+	left: 510px;
+	top: 268px;
+	z-index: 20;
+}
+#subtilapia {
+	left: 680px;
+	top: 298px;
+	z-index: 20;
+}
+#pea {
+	left: 506px;
+	top: 316px;
+	z-index: 20;
+}
+
+#orient {
+	left: 497px;
+	top: 336px;
+	z-index: 20;
+}
+#nochix {
+	left: 850px;
+	top: 355px;
+	z-index:20;
+}
+#createsalad{
+	left: 492px;
+	top: 364px;
+	z-index: 20;
+}
+
+#mini {
+	left: 655px;
+	top: 729px;
+	z-index:20;
+}
+#giant {
+	left: 805px;
+	top: 729px;
+	z-index: 20;
+}
+#roastbeef {
+	left: 804px;
+	top: 752px;
+	z-index: 20;
+}
+#ham {
+	left: 867px;
+	top: 752px;
+	z-index:20;
+}
+#ital {
+	left: 552px;
+	top: 769px;
+	z-index:20;
+}
+
+#tunasub {
+	left: 780px;
+	top: 770px;
+	z-index:20;
+}
+#cheeseveggie {
+	left: 813px;
+	top: 769px;
+	z-index:20;
+}
+
+
+#hummuspita {
+	left: 535px;
+	top: 903px;
+	z-index:20;
+}
+#pastasmall {
+	left: 690px;
+	top: 923px;
+	z-index:20;
+}
+#pastalarge {
+	left: 802px;
+	top: 923px;
+	z-index: 20;
+}
+#soda {
+	left: 549px;
+	top: 944px;
+	z-index: 20;
+}
+#water {
+	left: 604px;
+	top: 944px;
+	z-index:20;
+}
+#snapple {
+	left: 752px;
+	top: 944px;
+	z-index:20;
+}
+
+#smoothie {
+	left: 419px;
+	top: 678px;
+	z-index:20;
+}
+
+
+
+/******************************************************************/
+
+/* size of link area on menu -- turkey wraps */
+
+#gobble a {
+width: 378px;
+height: 18px;
+}
+#tt a {
+width: 334px;
+height: 18px;
+}
+
+#ttt a {
+width: 338px;
+height: 18px;
+}
+#wt a {
+width: 383px;
+height: 18px;
+}
+#chim a {
+width: 408px;
+height: 18px;
+}
+#st a {
+width: 387px;
+height: 27px;
+}
+
+/* size of link area on menu -- roast beef wraps */
+#rbb a {
+width: 336px;
+height: 18px;
+}
+#rr a {
+width: 346px;
+height: 18px;
+}
+#cr a {
+width: 349px;
+height: 18px;
+}
+#gf a {
+width: 412px;
+height: 27px;
+}
+#ct a {
+width: 245px;
+height: 18px;
+}
+#ntt a {
+width: 383px;
+height: 18px;
+}
+
+/* size of link area on menu -- veggie wraps */
+#alb a {
+width: 418px;
+height: 18px;
+}
+#veg a {
+width: 422px;
+height: 18px;
+}
+#awu a {
+width: 422px;
+height: 18px;
+}
+#hummus a {
+width: 355px;
+height: 18px;
+}
+
+/* size of link area on menu -- chicken wraps */
+#ftc a {
+width: 385px;
+height: 18px;
+}
+#peck a {
+width: 343px;
+height: 18px;
+}
+#cock a {
+width: 380px;
+height: 18px;
+}
+#cl a {
+width: 322px;
+height: 18px;
+}
+#bc a {
+width: 336px;
+height: 18px;
+}
+#knb a {
+width: 397px;
+height: 18px;
+}
+#cluck a {
+width: 320px;
+height: 18px;
+}
+#cc a {
+width: 426px;
+height: 18px;
+}
+#amigo a {
+width: 377px;
+height: 18px;
+}
+#thai a {
+width: 385px;
+height: 27px;
+}
+
+/*    menu - toasted subs    */
+#utb a {
+width: 400px;
+height: 27px;
+}
+#cad a {
+width: 410px;
+height: 27px;
+}
+#gov a {
+width: 392px;
+height: 18px;
+}
+#goomba a {
+width: 430px;
+height: 27px;
+}
+
+/*    menu - toasted focaccio   */
+#tm a {
+width: 430px;
+height: 27px;
+}
+#rbz a {
+width: 435px;
+height: 18px;
+}
+#sop a {
+width: 430px;
+height: 18px;
+}
+#port a {
+width: 435px;
+height: 27px;
+}
+#egg a {
+width: 430px;
+height: 18px;
+}
+
+/**** salads *****/
+#shore a {
+width: 405px;
+height: 18px;
+}
+#bird a {
+width: 330px;
+height: 18px;
+}
+#caesar a {
+width: 423px;
+height: 18px;
+}
+#addpenne a {
+width: 130px;
+height: 18px;
+}
+#bc a {
+width: 390px;
+height: 35px;
+}
+#buff a {
+width: 420px;
+height: 18px;
+}
+#mand a {
+width: 427px;
+height: 18px;
+}
+#sen a {
+width: 430px;
+height: 18px;
+}
+#addchix a {
+width: 130px;
+height: 18px;
+}
+#taco a {
+width: 435px;
+height: 29px;
+}
+#subtilapia a {
+width: 270px;
+height: 18px;
+}
+#pea a {
+width: 419px;
+height: 18px;
+}
+#orient a {
+width: 435px;
+height: 18px;
+}
+#nochix a {
+width: 85px;
+height: 18px;
+}
+#createsalad a {
+width: 250px;
+height: 25px;
+}
+#caes a {
+width: 75px;
+height: 22px;
+}
+#oriental a {
+width: 86px;
+height: 22px;
+}
+#tilap a {
+width: 115px;
+height: 18px;
+}
+#chix a {
+width: 100px;
+height: 18px;
+}
+#texmex a {
+width: 155px;
+height: 18px;
+}
+#tuna a {
+width: 115px;
+height: 18px;
+}
+#buffchix a {
+width: 155px;
+height: 18px;
+}
+#hum a {
+width: 200px;
+height: 18px;
+}
+#chef a {
+width: 95px;
+height: 18px;
+}
+
+#ched a {
+width: 153px;
+height: 18px;
+}
+#beans a {
+width: 69px;
+height: 18px;
+}
+#sour a {
+width: 71px;
+height: 18px;
+}
+#guac a {
+width: 72px;
+height: 18px;
+}
+#salsa a {
+width: 40px;
+height: 18px;
+}
+#feta a {
+width: 37px;
+height: 18px;
+}
+#roastedreds a {
+width: 113px;
+height: 18px;
+}
+#sun a {
+width: 98px;
+height: 18px;
+}
+#penne a {
+width: 95px;
+height: 18px;
+}
+#bleu a {
+width: 129px;
+height: 18px;
+}
+#mein a {
+width: 158px;
+height: 18px;
+}
+#peanuts a {
+width: 59px;
+height: 18px;
+}
+#walnuts a {
+width: 59px;
+height: 18px;
+}
+#raisins a {
+width: 48px;
+height: 18px;
+}
+#mands a {
+width: 99px;
+height: 18px;
+}
+#croutons a {
+width: 50px;
+height: 18px;
+}
+#craisins a {
+width: 50px;
+height: 18px;
+}
+#parm a {
+width: 90px;
+height: 18px;
+}
+#onions a {
+width: 48px;
+height: 18px;
+}
+#bacon a {
+width: 44px;
+height: 18px;
+}
+#peas a {
+width: 108px;
+height: 18px;
+}
+
+/* dressings */
+
+
+#hm a {
+width: 112px;
+height: 18px;
+}
+#ffranch a {
+width: 75px;
+height: 18px;
+}
+#mr a {
+width: 98px;
+height: 18px;
+}
+#rv a {
+width: 136px;
+height: 18px;
+}
+#chipranch a {
+width: 105px;
+height: 18px;
+}
+#ranch a {
+width: 28px;
+height: 18px;
+}
+#russ a {
+width: 35px;
+height: 18px;
+}
+#caesardress a {
+width: 30px;
+height: 18px;
+}
+#bleudress a {
+width: 55px;
+height: 18px;
+}
+#buffbleu a {
+width: 97px;
+height: 18px;
+}
+#orientdress a {
+width: 40px;
+height: 18px;
+}
+#ltital a {
+width: 49px;
+height: 18px;
+}
+#bv a {
+width: 100px;
+height: 18px;
+}
+#mini a {
+width: 49px;
+height: 18px;
+}
+#giant a {
+width: 55px;
+height: 18px;
+}
+#mini a {
+width: 80px;
+height: 18px;
+}
+#giant a {
+width: 83px;
+height: 18px;
+}
+#roastbeef a {
+width: 57px;
+height: 18px;
+}
+#ham a {
+width: 32px;
+height: 18px;
+}
+#ital a {
+width: 220px;
+height: 18px;
+}
+#tunasub a {
+width: 32px;
+height: 18px;
+}
+#cheeseveggie a {
+width: 135px;
+height: 18px;
+}
+
+
+#hummuspita a {
+width: 200px;
+height: 18px;
+}
+#pastasmall a {
+width: 43px;
+height: 18px;
+}
+#pastalarge a {
+width: 50px;
+height: 18px;
+}
+#soda a {
+width: 40px;
+height: 18px;
+}
+#water a {
+width: 50px;
+height: 18px;
+}
+#snapple a {
+width: 60px;
+height: 18px;
+}
+#smoothie a {
+width: 130px;
+height: 60px;
+}
+
+#gobble a:hover, #tt a:hover, #ttt a:hover, #wt a:hover, #chim a:hover, #st a:hover, #rbb a:hover, #rr a:hover, #cr a:hover, #gf a:hover,
+#ct a:hover, #ntt a:hover, #alb a:hover, #veg a:hover, #awu a:hover, #hummus a:hover, #ftc a:hover, #peck a:hover, #cock a:hover,
+#cl a:hover, #bc a:hover, #knb a:hover, #cluck a:hover, #cc a:hover, #amigo a:hover, #thai a:hover, #utb a:hover, #cad a:hover, #gov a:hover,
+#goomba a:hover, #tm a:hover, #rbz a:hover, #sop a:hover, #port a:hover, #egg a:hover, #shore a:hover, #bird a:hover, #caesar a:hover, 
+#addpenne a:hover, #bc a:hover,#buff a:hover, #mand a:hover, #sen a:hover, #addchix a:hover, #taco a:hover, #subtilapia a:hover, #pea a:hover,
+#orient a:hover, #nochix a:hover, #createsalad a:hover, #mini a:hover, #giant a:hover, #roastbeef a:hover, #ham a:hover, #ital a:hover, #tunasub a:hover, #cheeseveggie a:hover, #hummuspita a:hover, #pastasmall a:hover, #pastalarge a:hover, #soda a:hover, #water a:hover, #snapple a:hover, #smoothie a:hover{
+background-color:#33C;
+opacity: 0.6;
+-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+filter: alpha(opacity=60);
+-moz-opacity: 0.60;
+-khtml-opacity: 0.6;
+height:
+}
+
+
+
+ 

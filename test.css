@@ -1,0 +1,257 @@
+
+
+div.cartview {
+    background-color: #888;
+    padding: 20px;
+    margin-top: 10px;
+    margin-right: 20px;
+    text-align: center;
+    -moz-border-radius: 14px;
+    -webkit-border-radius: 14px;
+    -khtml-border-radius:14px;
+    border-radius: 14px;
+}
+
+body {margin:0px; padding:0px;
+      font:1em verdana, arial, sans-serif;
+}
+
+div#cart {position:absolute; left:600px; top:0px;
+          width:250px; padding:0.5em;
+          margin:80px 0 0 10px;
+          border-top:2px solid #eee;
+          border-left: 1px solid #eee;
+}
+
+#cart .simpleCart_increment,
+#cart .simpleCart_decrement{
+        line-height:1;
+        font-size:1px;
+        display:block;
+        height:5px;
+        margin-top:3px;
+}
+#cart .item-name{
+        float:left; 
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+}
+
+
+
+div#cart ul {margin-top:0px; margin-bottom:.8em;}
+div#cart li {margin-bottom:.5em;
+             font-weight:bold;
+             font-size:.75em; }
+
+
+div.itemsview {
+    background-color: #eee;
+    cursor: pointer;
+    text-align: left;
+    -moz-border-radius: 14px;
+    -webkit-border-radius: 14px;
+    -khtml-border-radius: 14px;
+    border-radius: 14px;
+}
+
+div#itemsShelf {position:absolute; left:0px; top:0px;
+           width:280px; padding:0;
+           padding:20px 0px 20px 0px;
+           margin:80px 0px 0px 10px;
+          border-top:2px solid #444;
+          border-left: 1px solid #444;
+}
+div#itemsShelf h1 {font-size:1em; }
+div#itemsShelf p {font-size:.8em;}
+div#itemsShelf li {font-size:.75em;}
+
+
+div.choicesview {
+    background-color: #eee;
+    cursor: pointer;
+    text-align: left;
+    -moz-border-radius: 14px;
+    -webkit-border-radius: 14px;
+    -khtml-border-radius: 14px;
+    border-radius: 14px;
+}
+
+div#choicesShelf {position:absolute; left:300px; top:0px;
+           width:280px; padding:0;
+           padding:20px 0px 20px 0px;
+           margin:80px 0px 0px 10px;
+          border-top:2px solid #444;
+          border-left: 1px solid #444;
+}
+div#choicesShelf h1 {font-size:1em; }
+div#choicesShelf p {font-size:.8em;}
+div#choicesShelf li {font-size:.75em;}
+
+.detailHeaderRow {
+    color: black;
+    font: 17px Helvetica, Arial, sans-serif;
+    line-height: 16px;
+    margin: 0;
+    padding: 3px 5px 1px 5px;
+    float:left; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-top:1px solid #999;
+    border-bottom:1px solid #999;
+}
+
+.myheaderCrumb {
+    text-align: left;
+    font: 16px Verdana, Arial, sans-serif;
+    width:500px;
+    font-weight:bold;
+    padding: 4px 4px 4px 4px;
+}
+.myheaderPrice {
+    text-align: right;
+    vertical-align:middle;
+    padding: 1px 9px 1px 9px;
+    border:1px solid green;
+    background-color:#778899;
+    color:white;
+    font-weight:bold;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.itemPicture {
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    border-radius: 4px;
+    border:3px solid #999;
+}
+
+
+.selectedList, .customization {
+    text-align: left;
+    vertical-align:top;
+    font-size:0.8em;
+}
+
+.selectedList h1 {
+    text-align: left;
+    font-weight:bold;
+    font-size:0.9em;
+    border-bottom:1px solid #999;
+}
+
+.customization h1 {
+    margin:0px 2px 0px 4px;
+    text-align: left;
+    font-weight:bold;
+    font-size:0.9em;
+    border-bottom:1px solid #999;
+}
+
+div#menu h3 {font-size:2em;
+           position:absolute; left:10px; top:28px;
+           margin:0px 0px 0px 0px;
+}
+
+div#details h3 {font-size:2em;
+           position:absolute; left:310px; top:28px;
+           margin:0px 0px 0px 0px;
+}
+
+.catAccordion {
+          border-top:1px solid #aaa;
+          border-bottom:1px solid #aaa;
+}
+
+.category  {
+    width:inherit;
+    margin:0 0 0 5px;
+    font-weight:bold;
+    font: 16px Verdana, Arial, sans-serif;
+}
+
+.itemrow  {
+    width:inherit;
+}
+
+.items {
+    width:inherit;
+    margin: 0 10px 4px 0;
+    padding: 3px 3px 1px 3px;
+}
+
+
+.item, .itemSelected {
+    background: #d4d4e5;
+    color: black;
+    cursor: pointer;
+    font: 14px Helvetica, Arial, sans-serif;
+    line-height: 16px;
+    margin: 0 8px 4px 9px;
+    padding: 3px 5px 1px 5px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    border-radius: 6px;
+}
+
+.itemSelected{
+    background: #6688ee;
+    color: white;
+    border: 1px solid #779;
+}
+
+.itemName {
+    text-align: left;
+    width:500px;
+    padding: 4px 4px 4px 4px;
+}
+.itemPrice {
+    text-align: right;
+    vertical-align:top;
+    padding: 4px 4px 4px 4px;
+}
+
+
+.qtyText {
+    background: #88DDFF;
+    color: black;
+    cursor: pointer;
+    font: 14px Helvetica, Arial, sans-serif;
+    line-height: 16px;
+    margin: 2px 8px 4px 9px;
+    padding: 3px 5px 3px 5px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    border-radius: 6px;
+}
+
+.qty {
+    text-align: right;
+    width:30px;
+    padding: 4px 4px 4px 4px;
+}
+
+.notes {
+    color: black;
+    cursor: pointer;
+    font: 14px Helvetica, Arial, sans-serif;
+    line-height: 16px;
+    margin: 2px 8px 4px 9px;
+    padding: 3px 5px 3px 5px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    border-radius: 6px;
+}
+
+textarea {
+    resize:vertical;  
+
+}
